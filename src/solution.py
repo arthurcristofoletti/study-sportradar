@@ -12,7 +12,7 @@ class player:
 
     @property
     def health(self) -> int:
-        return self.health
+        return self._health
     
     @property
     def is_alive(self) -> bool: 
@@ -35,7 +35,7 @@ class player:
         if self._health == 0:
             self.kill()
 
-                 
+
     def heal(self, amount: int) -> None:
         if not isinstance(amount, (int, float)):
             raise TypeError("Heal amount must be a number")
