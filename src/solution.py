@@ -1,19 +1,45 @@
 class player:
     INITIAL_HEALTH = 1000
-    def __init__( self, name:str):
-        try:
-            self.name = name
-        except:
-                raise ValueError("Name must be a string")
-        self.level = 1
-        self.health = self.INITIAL_HEALTH
-        self.is_alive = True
-    def take_damage(self, damage):
-        self.health -= damage
-        if self.health <= 0:
-            self.is_alive = False
-    def heal(self, amount):
-        if self.is_alive:
-            self.health += amount
-            if self.health > self.INITIAL_HEALTH:
-                self.health = self.INITIAL_HEALTH   
+    def __init__( self, name:str) -> None:
+        if not isinstance(name, str):
+            raise ValueError("Name must be a string")
+        if not name.strip():
+            raise ValueError("Name cannot be empty")
+        self.name : str = name
+        self.level : int = 1
+        self._health : int = self.INITIAL_HEALTH
+        self._is_alive : bool = True
+
+    @property
+    def health(self) -> int:
+        return self.health
+    
+    @property
+    def is_alive(self) -> bool: 
+        return self._is_alive
+    
+    def kill(self) -> None:
+         if not self._is_alive:   
+              return
+         self._health = 0
+         self._is_alive = False
+
+    def take_damage(self, damage: int) -> None:
+        if not isinstance(damage, (int, float)):
+            raise TypeErrorError("Damage must be a number")
+        if damage < 0:  
+            raise ValueError("Damage cannot be negative")
+        if self._is_alive:
+            return
+                 
+    def heal(self, amount: int) -> None:
+        if not isinstance(amount, (int, float)):
+            raise TypeError("Heal amount must be a number")
+        if amount < 0:
+            raise ValueError("Heal amount cannot be negative")
+        if not self._is_alive:
+            raise ValueError("Cannot heal a dead player")
+        self._health = min(self._health + amount, self.INITIAL_HEALTH)
+
+
+             

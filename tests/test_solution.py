@@ -33,3 +33,8 @@ def test_heal_dead_player():
     p.heal(500)
     assert p.health == 0
     assert p.is_alive == False     
+def test_damage_dead_player():
+    p=player("Arthur")
+    p.take_damage(1000)
+    p.take_damage(100)
+    
