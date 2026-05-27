@@ -20,7 +20,7 @@ jobs:
     - name: Set up Python
       uses: actions/actions-setup-python@v5
       with:
-        python-version: '3.9.6' # Você pode alterar para a versão que está usando localmente
+        python-version: '3.11' # Você pode alterar para a versão que está usando localmente
 
     # 3. Instala as dependências necessárias
     - name: Install dependencies
