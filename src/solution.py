@@ -31,6 +31,10 @@ class player:
             raise ValueError("Damage cannot be negative")
         if self._is_alive:
             return
+        self._health = max(self._health - damage, 0)
+        if self._health == 0:
+            self.kill()
+
                  
     def heal(self, amount: int) -> None:
         if not isinstance(amount, (int, float)):

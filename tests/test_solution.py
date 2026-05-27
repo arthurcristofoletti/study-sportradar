@@ -22,8 +22,8 @@ def test_heal():
     p = player("Charlie")
     p.take_damage(500)
     p.heal(300)
-    assert p._health == 800
-    assert p._is_alive == True   
+    assert p.health == 800
+    assert p.is_alive == True   
     p.heal(300)
     assert p._health == p.INITIAL_HEALTH
     assert p._is_alive == True
