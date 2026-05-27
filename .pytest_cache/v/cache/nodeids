@@ -1,0 +1,7 @@
+[
+  "tests/test_solution.py::test_heal",
+  "tests/test_solution.py::test_heal_dead_player",
+  "tests/test_solution.py::test_invalid_name",
+  "tests/test_solution.py::test_player_initialization",
+  "tests/test_solution.py::test_take_damage"
+]
