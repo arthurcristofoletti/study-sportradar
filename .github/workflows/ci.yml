@@ -18,7 +18,7 @@ jobs:
 
     # 2. Configura a versão do Python
     - name: Set up Python
-      uses: actions/actions-setup-python@v5
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11' # Você pode alterar para a versão que está usando localmente
 
